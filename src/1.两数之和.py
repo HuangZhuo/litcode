@@ -18,5 +18,7 @@ class Solution:
             if v in rec:
                 return rec[v], i
             else:
-                rec[target-v] = i
+                rec[target - v] = i
+
+
 # @lc code=end
