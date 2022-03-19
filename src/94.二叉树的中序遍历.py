@@ -2,6 +2,7 @@
 # @lc app=leetcode.cn id=94 lang=python3
 #
 # [94] 二叉树的中序遍历
+# 还有有意思的解法：https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/dong-hua-yan-shi-94-er-cha-shu-de-zhong-xu-bian-li/
 #
 from typing import *
 
@@ -60,7 +61,6 @@ class Solution:
                 ret.append(t.val)
             elif t.right:
                 s.append(t.right)
-
         return ret
 
     def inorderTraversal_array(self, root: Optional[TreeNode]) -> List[int]:
