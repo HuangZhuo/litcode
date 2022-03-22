@@ -19,7 +19,7 @@ class Solution:
         i, m, n = 0, 0, len(nums)
         tmp = nums[0]
         while (m < n):
-            i = (i + k) % n
+            i = (i + k) % n #err,这里麻烦之处在于计算下一位置
             nums[i], tmp = tmp, nums[i]  #swap
             m += 1
 
