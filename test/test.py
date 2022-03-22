@@ -12,3 +12,9 @@ class TestCommon(unittest.TestCase):
         print(*m)  # unpack
         z = zip(*m)  # zip
         print(list(z))
+
+    def test_str(self):
+        s = 'hw'
+        print(s[1:])  #w
+        print(s[1:2])  #w
+        print(s[1:3])  #w
