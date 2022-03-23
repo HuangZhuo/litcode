@@ -29,14 +29,14 @@ class Solution:
     def plusOne_trick(self, digits: List[int]) -> List[int]:
         i = len(digits) - 1
         while (i >= 0):
-            # 进位方式trick
+            # trick: 进位方式
             digits[i] += 1
             if digits[i] > 9:
                 digits[i] = 0
                 i -= 1
             else:
                 return digits
-        # 省略if trick
+        # trick: 省略if
         digits[0] = 0
         digits.insert(0, 1)
         return digits

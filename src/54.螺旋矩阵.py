@@ -10,6 +10,10 @@ from typing import *
 # @lc code=start
 class Solution:
     def spiralOrder_pythonic(self, matrix: List[List[int]]) -> List[int]:
+        '''
+        trick 解法
+        通过python 的 unpack, zip 操作实现矩阵“旋转”，“弹出”一条边然后重复即可
+        '''
         ret = []
         while matrix:
             ret += matrix.pop(0)
@@ -17,6 +21,10 @@ class Solution:
         return ret
 
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        '''
+        常规解法
+        确定四个边界，按照顺时针遍历4条边，每遍历一条边，将边界进行压缩，直到所有元素遍历完毕
+        '''
         if (len(matrix) == 0):
             return []
         left, top, right, botton = 0, 0, len(matrix[0]), len(matrix)
