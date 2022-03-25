@@ -28,20 +28,40 @@ from collections import deque
 
 
 class Solution:
-    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+    def connect_err(self, root: 'Optional[Node]') -> 'Optional[Node]':
         q = deque()
         q.append(root)
         while q:
             n = q.popleft()
-            if not n:
-                continue
             if not q:
                 n.next = None
             else:
+                # 这里有问题，会建立跨层的链接
                 n.next = q[0]
             if n.left:
                 q.append(n.left)
                 q.append(n.right)
+        return root
+
+
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return root
+        q = deque()
+        q.append(root)
+        while q:
+            n = len(q)
+            for i in range(n):
+                # 利用循环嵌套解决分层问题
+                node = q.popleft()
+                if i == n - 1:
+                    node.next = None
+                else:
+                    node.next = q[0]
+                if node.left:
+                    q.append(node.left)
+                    q.append(node.right)
         return root
 
 
