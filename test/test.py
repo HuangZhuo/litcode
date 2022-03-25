@@ -1,4 +1,6 @@
 import unittest
+from queue import Queue
+from collections import deque
 
 
 class TestCommon(unittest.TestCase):
@@ -18,3 +20,20 @@ class TestCommon(unittest.TestCase):
         print(s[1:])  #w
         print(s[1:2])  #w
         print(s[1:3])  #w
+
+    def test_queue(self):
+        q = Queue()
+        q.put(1)
+        q.put(2)
+        print(q.get())
+        print(q.get())
+        print(q.empty())
+
+    def test_deque(self):
+        q = deque()
+        q.append(1)
+        q.append(2)
+        print(q[0])
+        print(q.popleft())
+        print(q.popleft())
+        print(not q)
