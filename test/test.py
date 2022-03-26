@@ -33,7 +33,7 @@ class TestCommon(unittest.TestCase):
         q = deque()
         q.append(1)
         q.append(2)
-        print(q[0])
+        print(q[0])  # 只有deque才有'peek'操作
         print(q.popleft())
         print(q.popleft())
         print(not q)
