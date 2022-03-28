@@ -2,6 +2,7 @@
 # @lc app=leetcode.cn id=3 lang=python3
 #
 # [3] 无重复字符的最长子串
+# 这道题官方的解法比较一般，感觉也不是其所说的时间复杂度O(n)
 #
 
 
@@ -22,8 +23,7 @@ class Solution:
                 rec.clear()
         return max(m, t - f)
 
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        return self.lengthOfLongestSubstring_official(s)
+    def lengthOfLongestSubstring_v1(self, s: str) -> int:
         f, t, n = 0, 0, len(s)  # f-from,t-to
         rec = set()
         m = 0  # m-max
@@ -31,6 +31,7 @@ class Solution:
             if (s[t] not in rec):
                 rec.add(s[t])
             else:
+                #case: abcdc
                 while (s[f] != s[t]):
                     rec.remove(s[f])
                     f += 1
@@ -69,9 +70,30 @@ class Solution:
                 res = max(res, i - k)
         return res
 
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        '''
+        受到 captaintec 启发使用字典后改进的算法
+        '''
+        f, t, n = 0, 0, len(s)  # f-from,t-to
+        rec = {}
+        m = 0  # m-max
+        while (t < n):
+            if (s[t] not in rec):
+                rec[s[t]] = t
+            else:
+                #case: abcdcef,abba
+                f = max(f, rec[s[t]] + 1)  # f不能回溯
+                rec[s[t]] = t
+            m = max(m, t - f + 1)
+            t += 1
+        return m
+
 
 # @lc code=end
 
+print(Solution().lengthOfLongestSubstring_official('abba'))  # 2
+
+# base cases
 print(Solution().lengthOfLongestSubstring('abcabcbb'))  # 3
 print(Solution().lengthOfLongestSubstring('bbbbb'))  # 1
 
@@ -82,3 +104,5 @@ print(Solution().lengthOfLongestSubstring('dvdf'))  # 3
 print(Solution().lengthOfLongestSubstring('abcabcbb'))  # 3
 
 print(Solution().lengthOfLongestSubstring('pwwkew'))  # 3
+
+print(Solution().lengthOfLongestSubstring('abba'))  # 2
