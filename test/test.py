@@ -37,3 +37,6 @@ class TestCommon(unittest.TestCase):
         print(q.popleft())
         print(q.popleft())
         print(not q)
+
+    def test_any(self):
+        print(any([1, 2]))
