@@ -39,4 +39,14 @@ class TestCommon(unittest.TestCase):
         print(not q)
 
     def test_any(self):
-        print(any([1, 2]))
+        print(any([0, 0]))  # False
+        print(any([0, 1]))  # True
+        a = [[0, 0], [0, 1]]
+        print([1 in r for r in a])  # [False, True], "1 in r" 是一个表达式返回布尔值
+        print(any(1 in r for r in a))  # True
+
+    def test_sum(self):
+        print(sum([1, 2, 3]))  # 6
+        # countif with generator
+        print([1 if i == 1 else 0 for i in [1, 0, 1, 1, 1, 0]])  # "1 if i == 1 else 0" 是一个表达式返回1或0
+        print(sum(1 if i == 1 else 0 for i in [1, 0, 1, 1, 1, 0]))
