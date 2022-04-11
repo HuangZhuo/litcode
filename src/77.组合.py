@@ -10,6 +10,26 @@ from typing import *
 
 # @lc code=start
 class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        ret = []
+
+        def _bt(_f, _li: list):  # f-from
+            if len(_li) == k:
+                ret.append([*_li])
+                return
+            # _li.append(_f)
+            # for i in range(_f + 1, n + 1):
+            #     _bt(i, _li)
+            # _li.pop()
+
+            for i in range(_f, n + 1):
+                _li.append(i)
+                _bt(i + 1, _li)
+                _li.pop()
+
+        _bt(1, [])
+        return ret
+
     def combine_official(self, n: int, k: int) -> List[List[int]]:
         combs = [[]]
         for _ in range(k):

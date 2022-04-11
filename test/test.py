@@ -41,6 +41,13 @@ class TestBasic(unittest.TestCase):
         print(q.popleft())
         print(not q)
 
+    def test_stack(self):
+        a = []
+        a.append(1)
+        a.append(2)
+        a.pop()
+        print(a)
+
     def test_any(self):
         print(any([0, 0]))  # False
         print(any([0, 1]))  # True
