@@ -16,7 +16,7 @@ class Solution:
         f, t = 0, w * h - 1
         while f <= t:
             mid = (f + t) >> 1
-            mi, mj = mid // w, mid % w
+            mi, mj = divmod(mid, w)  # faster than use `//` and `%`
             if matrix[mi][mj] == target: return True
             elif matrix[mi][mj] < target: f = mid + 1
             else: t = mid - 1

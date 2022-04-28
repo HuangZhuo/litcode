@@ -38,7 +38,7 @@ class Solution:
 
 # @lc code=end
 
-print(Solution().reachingPoints(1, 1, 3, 5))
-print(Solution().reachingPoints(2, 3, 8, 19))
-print(Solution().reachingPoints(2, 3, 8, 20))
-print(Solution().reachingPoints(10, 4, 10, 20))
+print(Solution().reachingPoints(1, 1, 3, 5))  #true
+print(Solution().reachingPoints(2, 3, 8, 19))  #true
+print(Solution().reachingPoints(2, 3, 8, 20))  #false
+print(Solution().reachingPoints(10, 4, 10, 20))  #false

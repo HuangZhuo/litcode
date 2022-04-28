@@ -11,7 +11,8 @@ class Solution:
     def search(self, nums: List[int], target: int) -> int:
         i, j = 0, len(nums) - 1
         while (i <= j):
-            x = (i + j) // 2
+            # x = (i + j) // 2  # 取平均数不要使用这种写法了，看上去有溢出风险
+            x = i + (j - i) // 2
             if nums[x] == target:
                 return x
             elif nums[x] > target:
