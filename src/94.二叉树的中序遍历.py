@@ -5,14 +5,7 @@
 # 还有有意思的解法：https://leetcode-cn.com/problems/binary-tree-inorder-traversal/solution/dong-hua-yan-shi-94-er-cha-shu-de-zhong-xu-bian-li/
 #
 from typing import *
-
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
+from common import *
 
 # @lc code=start
 # Definition for a binary tree node.

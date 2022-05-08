@@ -13,6 +13,13 @@ class ListNode:
         return str(self.val) + ',' + str(self.next)
 
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 def new_linklist(*args):
     h = iter = None
     for n in args:
