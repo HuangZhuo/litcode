@@ -26,7 +26,7 @@ class Solution:
                 r -= 1
         return r - l
 
-    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+    def minSubArrayLen_mine(self, target: int, nums: List[int]) -> int:
         n = len(nums) - 1
         l = 0
         r = -1
@@ -42,6 +42,21 @@ class Solution:
                 s -= nums[l]
                 l += 1
         return ret
+
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        # 官方题解
+        n = len(nums)
+        ret = n + 1  # 设置答案为不可能的一个值
+        l = r = 0
+        s = 0
+        while r < n:
+            s += nums[r]
+            while s >= target:
+                ret = min(ret, r - l + 1)
+                s -= nums[l]
+                l += 1
+            r += 1
+        return 0 if ret == (n + 1) else ret
 
 
 # @lc code=end
