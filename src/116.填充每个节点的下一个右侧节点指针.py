@@ -4,14 +4,10 @@
 # [116] 填充每个节点的下一个右侧节点指针
 # 思路：有点像广度优先遍历的样子
 #
-class Node:
-    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
-        self.val = val
-        self.left = left
-        self.right = right
-        self.next = next
+from collections import deque
+from typing import *
 
-
+from common import *
 # @lc code=start
 """
 # Definition for a Node.
@@ -22,9 +18,6 @@ class Node:
         self.right = right
         self.next = next
 """
-
-from typing import *
-from collections import deque
 
 
 class Solution:
